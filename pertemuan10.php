@@ -1,6 +1,3 @@
-<!-- Mikacinta Gustina Amalan Toyibah
-     RPL - 4A
-    2204646 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,22 +80,26 @@
             Hasil: 
             <?php
                 if(isset($_POST['num1']) && isset($_POST['num2'])) {
-                    if(isset($_POST['add'])) {
-                        $result = $_POST['num1'] + $_POST['num2'];
-                        echo $result;
-                    } elseif(isset($_POST['subtract'])) {
-                        $result = $_POST['num1'] - $_POST['num2'];
-                        echo $result;
-                    } elseif(isset($_POST['multiply'])) {
-                        $result = $_POST['num1'] * $_POST['num2'];
-                        echo $result;
-                    } elseif(isset($_POST['divide'])) {
-                        if($_POST['num2'] == 0) {
-                            echo "Tidak terdefinisi.";
-                        } else {
-                            $result = $_POST['num1'] / $_POST['num2'];
+                    if(is_numeric($_POST['num1']) && is_numeric($_POST['num2'])) {
+                        if(isset($_POST['add'])) {
+                            $result = $_POST['num1'] + $_POST['num2'];
                             echo $result;
+                        } elseif(isset($_POST['subtract'])) {
+                            $result = $_POST['num1'] - $_POST['num2'];
+                            echo $result;
+                        } elseif(isset($_POST['multiply'])) {
+                            $result = $_POST['num1'] * $_POST['num2'];
+                            echo $result;
+                        } elseif(isset($_POST['divide'])) {
+                            if($_POST['num2'] == 0) {
+                                echo "Tidak terdefinisi.";
+                            } else {
+                                $result = $_POST['num1'] / $_POST['num2'];
+                                echo $result;
+                            }
                         }
+                    } else {
+                        echo "Masukkan angka yang valid.";
                     }
                 }
             ?>
@@ -113,4 +114,3 @@
     </script>
 </body>
 </html>
-
